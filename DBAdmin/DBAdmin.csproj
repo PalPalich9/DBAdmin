@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="backet.svg" />
+    <None Remove="logolego.png" />
+    <None Remove="pages\legochelik.png" />
+    <None Remove="pages\userIcon.png" />
+    <None Remove="res\drawable\logolego.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Flattinger.UI.ToastMessage" Version="1.0.0.3" />
+    <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="2.0.1" />
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="9.0.0" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="8.0.10" />
+    <PackageReference Include="Svg.Skia" Version="2.0.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="backet.svg" />
+    <Resource Include="logolego.png" />
+    <Resource Include="pages\legochelik.png" />
+    <Resource Include="pages\userIcon.png" />
+    <Resource Include="res\drawable\logolego.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,46 @@
+﻿<Page x:Class="DBAdmin.pages.BacketPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DBAdmin.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BacketPage">
+    <Page.Resources>
+        <DataTemplate x:Key="listTemplate">
+            <StackPanel Margin="5" Orientation="Horizontal" Width="600" Height="300">
+                <Image Width="135" Height="100" Source="{Binding Image, UpdateSourceTrigger=PropertyChanged}"></Image>
+                <StackPanel Orientation="Vertical">
+                    <TextBlock x:Name="name" Height="50" Width="30"  Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                    <TextBlock x:Name="price" Height="50" Width="30" Text="{Binding Price, UpdateSourceTrigger=PropertyChanged, StringFormat='${0}'}"></TextBlock>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="minus" Height="50" Width="50" Command="{Binding DataContext.DecrementCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+        CommandParameter="{Binding}"></Button>
+                        <TextBlock x:Name="count" Height="50" Width="50"  Text="{Binding InBacket, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+                        <Button x:Name="plus" Height="50" Width="50" Command="{Binding DataContext.IncrementCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+        CommandParameter="{Binding}"></Button>
+                    </StackPanel>
+                    <Button Height="50" Width="50" Command="{Binding DataContext.DeleteCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+        CommandParameter="{Binding}">
+                        <Image x:Name="trash" ></Image>
+                    </Button>
+                </StackPanel>
+               
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <StackPanel Orientation="Horizontal">
+            <ListBox x:Name="backetSetsList" Margin="0 0 0 0" Width="550" Height="800" ItemTemplate="{StaticResource listTemplate}" ItemsSource="{Binding BacketSets, UpdateSourceTrigger=PropertyChanged}"  >
+            </ListBox>
+            <StackPanel Orientation="Vertical" Margin="50 20">
+                <TextBlock  Text="Order summary" Height="20" Width="120"></TextBlock>
+                <TextBlock x:Name="summary" Text="{Binding Summary, UpdateSourceTrigger=PropertyChanged, StringFormat='${0}'}" Height="20" Width="120"></TextBlock>
+                <TextBox x:Name="address" Margin="0 30 0 0" Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                <Button Content="Checkout" Margin="0 30 0 0" Command="{Binding DataContext.UpdateCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+        CommandParameter="{Binding}"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

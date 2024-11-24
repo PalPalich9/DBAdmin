@@ -1,0 +1,53 @@
+﻿<Page x:Class="DBAdmin.DBPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DBAdmin"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="DBPage">
+
+    <Grid>
+        <StackPanel>
+
+            <Image x:Name="image" Height="150" Width="200" Margin="0 30 0 10"  IsHitTestVisible ="True" Source="{Binding SelectedImage}"/>
+
+            <TextBox x:Name="textArticle" Height="35" Width="200" Margin="0 10 0 10" Text="{Binding TextArticle, UpdateSourceTrigger=PropertyChanged}" Tag="Артикул" ></TextBox>
+            <TextBox x:Name="textName" Height="35" Width="200"  Margin="0 10 0 10" Text="{Binding TextName, UpdateSourceTrigger=PropertyChanged}" Tag="Название набора" ></TextBox>
+            <TextBox x:Name="TextCollection" Height="35" Width="200"  Margin="0 10 0 10" Text="{Binding TextCollection, UpdateSourceTrigger=PropertyChanged}" Tag="Коллекция" ></TextBox>
+            <TextBox x:Name="textPrice" Height="35" Width="200"  Margin="0 10 0 10" Text="{Binding TextPrice, UpdateSourceTrigger=PropertyChanged}" Tag="Цена"></TextBox>
+            <TextBox x:Name="textPieceCount" Height="35" Width="200"  Margin="0 10 0 10" Text="{Binding TextPieceCount, UpdateSourceTrigger=PropertyChanged}" Tag="Кол-во деталей" ></TextBox>
+            <TextBox x:Name="textCount" Height="35" Width="200"  Margin="0 10 0 10" Text="{Binding TextCount, UpdateSourceTrigger=PropertyChanged}" Tag="Кол-во наборов" ></TextBox>
+            <Button x:Name="buttonAdd" Content="Add" Height="40" Width="200" Background="Bisque" Margin="0 20" Command="{Binding AddCommand}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="buttonImage" Content="Image" Height="40" Width="200" Background="Bisque" Margin="0 0" Command="{Binding LoadImageCommand}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="buttonCollection" Content="Add Collection" Height="40" Width="200" Background="Bisque" Margin="0 0" Command="{Binding AddCollectionCommand}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="buttonPage" Content="Page" Height="40" Width="200" Background="DarkOrchid" Margin="0 0" Command="{Binding NavigateCommand}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+
+    </Grid>
+</Page>
